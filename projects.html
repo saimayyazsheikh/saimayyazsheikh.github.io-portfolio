@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Muhammad Saim Ayyaz - Full Stack Developer specializing in React, .NET, and QA solutions.">
+  <title>Projects | Muhammad Saim Ayyaz</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/images/slogo.ico" type="image/x-icon">
+
+  <!-- canonical URL -->
+  <link rel="canonical" href="https://saimayyazsheikh.github.io/projects">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- custom css link -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+  <style>
+    /* ======================
+        PROJECT CARD STYLES
+    ========================= */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .project-card {
+      background: var(--background-primary);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-category {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      margin: 0.5rem 0;
+      color: var(--foreground-primary);
+    }
+
+    .project-desc {
+      color: var(--foreground-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .view-details-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .view-details-btn:hover {
+      background: var(--foreground-secondary);
+    }
+
+    /* Modal Styles */
+    .project-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .modal-content {
+      background: var(--background-primary);
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--foreground-secondary);
+    }
+
+    .modal-project-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal-content {
+        padding: 1.5rem;
+      }
+    }
+
+    
+  </style>
+</head>
+
+<body class="light-theme">
+
+  <!-- ======================
+      HEADER SECTION
+========================= -->
+<header>
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html">
+        <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's logo" width="250" height="200" class="logo-light">
+        <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's logo" width="250" height="200" class="logo-dark">
+      </a>
+
+      
+
+        <div class="btn-group">
+          <button class="nav-menu-btn" aria-label="Open menu">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+          <!-- Back Button -->
+      <button class="back-home-btn" onclick="window.location.href='index.html';">
+        <ion-icon name="arrow-back-outline"></ion-icon> <!-- Using Ionicons for back arrow -->
+        </button>
+        </div>
+
+      <div class="flex-wrapper">
+        <ul class="desktop-nav">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="mobile-nav">
+        <button class="nav-close-btn" aria-label="Close menu">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      
+        <div class="wrapper">
+          <p class="h3 nav-title">Main Menu</p>
+          <ul>
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a href="projects.html" class="nav-link active">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a href="services.html" class="nav-link">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      
+        <div>
+          <p class="h3 nav-title">Topics</p>
+          <ul>
+            <li class="nav-item">
+              <a href="projects.html?filter=web" class="nav-link">Web Development</a>
+            </li>
+            <li class="nav-item">
+              <a href="projects.html?filter=net" class="nav-link">Networking & Infrastructure</a>
+            </li>
+            <li class="nav-item">
+              <a href="services.html#qa" class="nav-link">Software Project Managemet</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="projects-page">
+  <section class="projects-hero">
+    <div class="container">
+      <h1 class="h1"><br>My Projects</h1>
+    </div>
+  </section>
+
+  <section class="project-filter-section">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="fsd">Full Stack Development</button>
+        <button class="filter-btn" data-filter="sa">Software Project Managemet</button>
+        <button class="filter-btn" data-filter="devops">DevOps</button>
+        <button class="filter-btn" data-filter="blazor">Blazor</button>
+        <button class="filter-btn" data-filter="iot">Internet Of Thing</button>
+        <button class="filter-btn" data-filter="net">Networking & Infrastructure</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-grid-section">
+    <div class="container">
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="fsd">
+          <div class="project-image">
+            <img src="assets/images/fsd.jpg.jpg" alt="Safe Trade Hub (FYP)">
+          </div>
+          <div class="project-info">
+            <span class="project-category">Full-stack Development</span>
+            <h3 class="project-title">Safe Trade Hub (FYP) - In Progress</h3>
+            <p class="project-desc">A secure Consumer-to-Consumer (C2C) Marketplace platform featuring end-to-end user verification, a trustee escrow system for safe transactions, and real-time product listings with chat functionality.</p>
+            <button class="view-details-btn" data-modal="ecommerce-modal">View Details</button>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="devops">
+          <div class="project-image">
+            <img src="assets/images/devops.jpg.png" alt="CI/CD DevOps Pipeline">
+          </div>
+          <div class="project-info">
+            <span class="project-category">DevOps</span>
+            <h3 class="project-title">CI/CD DevOps Pipeline</h3>
+            <p class="project-desc">Designed and implemented an automated Continuous Integration/Continuous Deployment (CI/CD) pipeline to streamline code testing, building, and deployment processes.</p>
+            <button class="view-details-btn" data-modal="student-portal-modal">View Details</button>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="assets/images/stdp.jpg.jpg" alt="Weather App & Blog Website">
+          </div>
+          <div class="project-info">
+            <span class="project-category">Web Develpoment</span>
+            <h3 class="project-title">Weather App & Blog Website</h3>
+            <p class="project-desc">A full-stack web application that fetches real-time weather data via APIs and includes a blog section for user-generated content with CRUD functionality.</p>
+            <button class="view-details-btn" data-modal="medical-store-modal">View Details</button>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="assets/images/webdev.jpg.jpg" alt="Student Portal">
+          </div>
+          <div class="project-info">
+            <span class="project-category">Web Development</span>
+            <h3 class="project-title">Student Portal</h3>
+            <p class="project-desc">A web-based portal for students to manage academic profiles, register for courses, and track progress, with secure authentication and data validation.</p>
+            <button class="view-details-btn" data-modal="qa-framework-modal">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Project Modals -->
+<div id="ecommerce-modal" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <img src="assets/images/fsd.jpg.jpg" alt="Full-stack Development" class="modal-project-image">
+    <h2>Safe Trade Hub(FYP)</h2> 
+    <div class="project-details">
+      <p><strong>Technologies:</strong> <br>Frontend: React, Redux, Material-UI<br>Backend: Node.js, Express.js<br>Database: MongoDB</p>
+      <p><strong><br>Key Features:</strong></p>
+      <ul>
+        <li>User verification (KYC) & trustee-mediated payments</li>
+        <li>Real-time listings with geolocation filters</li>
+        <li>In-app messaging (WebSocket) & dispute resolution</li>
+      </ul>
+      <a href="https://saimayyazsheikh.github.io/" class="view-project-btn" target="_blank">View Live Project</a>
+    </div>
+  </div>
+</div>
+
+<div id="student-portal-modal" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <img src="assets/images/devops.jpg.png" alt="CI/CD DevOps Pipeline" class="modal-project-image">
+    <h2>CI/CD DevOps Pipeline</h2>
+    <div class="project-details">
+      <p><strong>Technologies:</strong><br>Tools: Jenkins, Docker, AWS (EC2/S3)<br>Scripting: Bash, YAML (GitHub Actions)</p>
+      <p><strong><br>Key Features:</strong></p>
+      <ul>
+        <li>Automated testing (Jest) + build triggers</li>
+        <li>Docker containerization & AWS EC2 orchestration</li>
+        <li>Slack notifications for deployment status</li>
+      </ul>
+      <a href="YOUR_PROJECT_LINK_HERE" class="view-project-btn" target="_blank">View Live Project</a>
+    </div>
+  </div>
+</div>
+
+<div id="medical-store-modal" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <img src="assets/images/stdp.jpg.jpg" alt="Weather App & Blog Website" class="modal-project-image">
+    <h2>Weather App & Blog Website</h2>
+    <div class="project-details">
+      <p><strong>Technologies:</strong><br>Frontend: React, Chart.js<br>Backend: Node.js, Express.js<br>Database: MongoDB</p>
+      <p><strong><br>Key Features:</strong></p>
+      <ul>
+        <li>Live weather data (OpenWeatherMap API)</li>
+        <li>CRUD operations for blog posts</li>
+        <li>JWT authentication</li>
+      </ul>
+      <a href="YOUR_PROJECT_LINK_HERE" class="view-project-btn" target="_blank">View Live Project</a>
+  </div>
+</div>
+</div>
+
+<div id="qa-framework-modal" class="project-modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <img src="assets/images/webdev.jpg.jpg" alt="Student Portal" class="modal-project-image">
+    <h2>Student Portal</h2>
+    <div class="project-details">
+      <p><strong>Technologies:</strong><br>Frontend: HTML, CSS, JavaScript<br>Backend: C# (.NET Core)<br>Database: SQL Server<br></p>
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>Role-based access (Admin/Student)</li>
+        <li>Course registration + GPA calculator</li>
+        <li>SQL data validation</li>
+      </ul>
+      <p><strong>Impact:</strong> Reduced regression testing time by 75% and increased test coverage by 60%.</p>
+      <a href="YOUR_PROJECT_LINK_HERE" class="view-project-btn" target="_blank">View Live Project</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======================
+      FOOTER SECTION
+========================= -->
+<footer>
+  <div class="container">
+    <div class="wrapper">
+      <a href="#" class="footer-logo">
+        <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's Logo" width="250" height="200" class="logo-light">
+        <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's Logo" width="250" height="200" class="logo-dark">
+      </a>
+      
+    </div>
+
+    <div class="wrapper">
+      <p class="footer-title">Quick Links</p>
+      <ul>
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="about.html" class="footer-link">About</a></li>
+        <li><a href="services.html" class="footer-link">Services</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <p class="footer-title">Legal</p>
+      <ul>
+        <li>
+          <a href="#" class="footer-link">Privacy Policy</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Cookie Policy</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="copyright">
+    &copy; Copyright 2025 <a href="#">Muhammad Saim Ayyaz</a>
+  </p>
+</footer>
+
+ <!-- Scripts -->
+ <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js">
+  
+ </script>
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        projectCards.forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? 
+            'block' : 'none';
+        });
+      });
+    });
+
+    // Modal functionality
+    const viewButtons = document.querySelectorAll('.view-details-btn');
+    const closeButtons = document.querySelectorAll('.close-modal');
+
+    viewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.project-modal');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close modal when clicking outside content
+    window.addEventListener('click', (e) => {
+      if (e.target.classList.contains('project-modal')) {
+        e.target.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+<style>
+  /* Add this to your existing styles */
+  .view-project-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+
+  .view-project-btn:hover {
+    background: var(--foreground-secondary);
+  }
+</style>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Services offered by Muhammad Saim Ayyaz - Full Stack Developer specializing in React, .NET, and QA solutions.">
+  <title>Services | Muhammad Saim Ayyaz</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/images/slogo.ico" type="image/x-icon">
+
+  <!-- canonical URL -->
+  <link rel="canonical" href="https://saimayyazsheikh.github.io/services">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- custom css link -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* ======================
+        SERVICES PAGE STYLES
+    ========================= */
+    .services-hero {
+      background: var(--background-secondary);
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .service-tiers-section {
+      padding: 3rem 0;
+    }
+
+    .service-tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: var(--background-primary);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card ion-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      color: var(--foreground-primary);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--foreground-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-link {
+      color: var(--accent);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-link:hover {
+      color: var(--foreground-secondary);
+    }
+
+    .btn-hire {
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-hire:hover {
+      background: var(--accent-dark);
+    }
+
+    .service-process {
+      padding: 3rem 0;
+      background: var(--background-secondary);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--background-primary);
+      border-radius: 8px;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      line-height: 40px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Service details sections */
+    .service-details-section {
+      padding: 2rem 0;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .service-details-section.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .service-details {
+      background: var(--background-primary);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+
+    .service-details h3 {
+      color: var(--foreground-primary);
+      margin-bottom: 1rem;
+    }
+
+    .service-details p {
+      color: var(--foreground-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-details ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-details li {
+      color: var(--foreground-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .service-tiers,
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+      
+      .services-hero {
+        padding: 3rem 0;
+      }
+
+      .card-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body class="light-theme">
+
+  <!-- ======================
+      HEADER SECTION
+  ========================= -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's logo" width="250" height="200" class="logo-light">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's logo" width="250" height="200" class="logo-dark">
+        </a>
+
+        <!-- Back Button -->
+        <button class="back-home-btn" onclick="window.location.href='index.html';">
+          <ion-icon name="arrow-back-outline"></ion-icon> <!-- Using Ionicons for back arrow -->
+          </button>
+
+        <div class="btn-group">
+          <button class="nav-menu-btn" aria-label="Open menu">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="flex-wrapper">
+          <ul class="desktop-nav">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="services.html" class="nav-link active">Services</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="mobile-nav">
+          <button class="nav-close-btn" aria-label="Close menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        
+          <div class="wrapper">
+            <p class="h3 nav-title">Main Menu</p>
+            <ul>
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">About Me</a>
+              </li>
+              <li class="nav-item">
+                <a href="projects.html" class="nav-link">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a href="services.html" class="nav-link active">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        
+          <div>
+            <p class="h3 nav-title">Topics</p>
+            <ul>
+              <li class="nav-item">
+                <a href="projects.html?filter=web" class="nav-link">Web Development</a>
+              </li>
+              <li class="nav-item">
+                <a href="projects.html?filter=net" class="nav-link">.NET & C#</a>
+              </li>
+              <li class="nav-item">
+                <a href="#qa" class="nav-link">Quality Assurance</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================
+      SERVICES HERO SECTION
+  ========================= -->
+  <main class="services-page">
+    <section class="services-hero">
+      <div class="container">
+        <h1 class="h1">My Services</h1>
+        <p class="h3">Professional solutions tailored to your needs</p>
+      </div>
+    </section>
+
+    <!-- ======================
+        SERVICE TIERS SECTION
+    ========================= -->
+    <section class="service-tiers-section">
+      <div class="container">
+        <h2 class="h2">Service Offerings</h2>
+        <div class="service-tiers">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <ion-icon name="code-slash-outline"></ion-icon>
+            <h3>Web Development</h3>
+            <p>Custom web applications built with modern technologies like HTML | CSS | JAVASCRIPT. Responsive designs that work across all devices.</p>
+            <div class="card-actions">
+              <button class="btn-link learn-more-btn" data-target="web-development">Learn more →</button>
+              <a href="contact.html" class="btn-hire">Hire Me</a>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <ion-icon name="server-outline"></ion-icon>
+            <h3>Networking & Infrastructure</h3>
+            <p>I design secure, scalable networks using Cisco, AWS , and Docker, with expertise in VPNs, VLANs, and CI/CD automation (Jenkins)—optimizing performance.</p>
+            <div class="card-actions">
+              <button class="btn-link learn-more-btn" data-target="net-development">Learn more →</button>
+              <a href="contact.html" class="btn-hire">Hire Me</a>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <ion-icon name="shield-checkmark-outline"></ion-icon>
+            <h3>Software Project Management</h3>
+            <p>Delivering software projects on time, within scope, and to the highest quality standards through technical leadership and streamlined processes.</p>
+            <div class="card-actions">
+              <button class="btn-link learn-more-btn" data-target="qa">Learn more →</button>
+              <a href="contact.html" class="btn-hire">Hire Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================
+        SERVICE DETAILS SECTION
+    ========================= -->
+    <section id="web-development" class="service-details-section">
+      <div class="container">
+        <h2 class="h2">Web Development Services</h2>
+        <div class="service-details">
+          <h3>Full-stack Web Development</h3>
+          <p>I build responsive, user-friendly web applications using modern technologies:</p>
+          <ul>
+            <li>Frontend: React | CSS | JavaScript</li>
+            <li>Backend: HTML | .Net | C#</li>
+            <li>DataBase: SQL </li>
+            <li>Mobile-responsive designs</li>
+            <li>RESTful API development</li>
+            <li>Progressive Web Apps (PWAs)</li>
+          </ul>
+          <a href="contact.html" class="btn-hire">Hire Me for Web Development</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="net-development" class="service-details-section">
+      <div class="container">
+        <h2 class="h2">Network & Cloud Infrastructure Services</h2>
+        <div class="service-details">
+          <h3>Network & Cloud Infrastructure</h3>
+          <p>I design and optimize secure, high-performance network architectures using Cisco Packet Tracer, AWS (EC2/VPC/S3), and Docker, ensuring scalable cloud deployments, hybrid network integration, and robust security protocols (VPNs, VLANs, firewalls). My solutions streamline infrastructure costs while maximizing reliability—from configuring enterprise-grade networks to automating cloud-based systems with CI/CD pipelines (Jenkins/GitHub Actions).</p>
+          <ul>
+            <li>Key Tools & Tech:</li>
+            <li>Networking: Cisco, VPNs, VLANs, IP Routing</li>
+            <li>Cloud: AWS (EC2, VPC, S3), Docker, Multi-Cloud</li>
+            <li>Automation: CI/CD (Jenkins/GitHub Actions)</li>
+          </ul>
+          <a href="contact.html" class="btn-hire">Hire Me for Networking</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="qa" class="service-details-section">
+      <div class="container">
+        <h2 class="h2">Software Project Management Services</h2>
+        <div class="service-details">
+          <h3>Agile Project Management</h3>
+          <p>Ensure your software meets quality standards with:</p>
+          <ul>
+            <li>Agile/Scrum Execution – Leading sprint planning, daily standups, and retrospectives to keep teams aligned and productive.</li>
+            <li>Clear Roadmaps – Breaking down complex requirements into actionable tasks with measurable milestones.</li>
+            <li>Risk Mitigation – Proactively identifying blockers and dependencies to prevent delays.</li>
+            <li>Stakeholder Alignment – Keeping all parties informed with transparent progress tracking and data-driven updates.</li>
+            <li>Quality-First Mindset – Integrating QA early in the SDLC to reduce rework and ensure robust deliverables.</li>
+          </ul>
+          <a href="contact.html" class="btn-hire">Hire Me for QA Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================
+        PROCESS SECTION
+    ========================= -->
+    <section class="service-process">
+      <div class="container">
+        <h2 class="h2">My Working Process</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Discovery</h3>
+            <p class="step-desc">Requirements gathering and project planning</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Design</h3>
+            <p class="step-desc">Architecture and UI/UX planning</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Development</h3>
+            <p class="step-desc">Implementation with regular updates</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3 class="step-title">Delivery</h3>
+            <p class="step-desc">Testing, deployment, and maintenance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================
+      FOOTER SECTION
+  ========================= -->
+  <footer>
+    <div class="container">
+      <div class="wrapper">
+        <a href="#" class="footer-logo">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's Logo" width="250" height="200" class="logo-light">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's Logo" width="250" height="200" class="logo-dark">
+        </a>
+        
+      </div>
+
+      <div class="wrapper">
+        <p class="footer-title">Quick Links</p>
+        <ul>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="services.html" class="footer-link">Services</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="wrapper">
+        <p class="footer-title">Legal</p>
+        <ul>
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Cookie Policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">
+      &copy; Copyright 2025 <a href="#">Muhammad Saim Ayyaz</a>
+    </p>
+  </footer>
+
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.min.js"></script>
+  <script src="./assets/js/animations.js"></script>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Service details toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+      
+      learnMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+          const targetSection = document.getElementById(targetId);
+          
+          // Hide all sections first
+          document.querySelectorAll('.service-details-section').forEach(section => {
+            section.classList.remove('visible');
+          });
+          
+          // Show the selected section
+          targetSection.classList.add('visible');
+          
+          // Scroll to the section
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+      
+      // Close details when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.learn-more-btn') && !e.target.closest('.service-details-section')) {
+          document.querySelectorAll('.service-details-section').forEach(section => {
+            section.classList.remove('visible');
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Muhammad Saim Ayyaz - Full Stack Developer specializing in React, .NET, and QA solutions.">
+  <title>Contact | Muhammad Saim Ayyaz</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/images/slogo.ico" type="image/x-icon">
+
+  <!-- canonical URL -->
+  <link rel="canonical" href="https://saimayyazsheikh.github.io/contact">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- custom css link -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body class="light-theme">
+
+  <!-- ======================
+      HEADER SECTION
+  ========================= -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's logo" width="250" height="200" class="logo-light">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's logo" width="250" height="200" class="logo-dark">
+        </a>
+        <!-- Back Button -->
+        <button class="back-home-btn" onclick="window.location.href='index.html';">
+          <ion-icon name="arrow-back-outline"></ion-icon> <!-- Using Ionicons for back arrow -->
+          </button>
+
+        <div class="btn-group">
+          <button class="nav-menu-btn" aria-label="Open menu">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+
+        <div class="flex-wrapper">
+          <ul class="desktop-nav">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="mobile-nav">
+          <button class="nav-close-btn" aria-label="Close menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        
+          <div class="wrapper">
+            <p class="h3 nav-title">Main Menu</p>
+            <ul>
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link">About Me</a>
+              </li>
+              <li class="nav-item">
+                <a href="projects.html" class="nav-link">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a href="services.html" class="nav-link">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link active">Contact</a>
+              </li>
+            </ul>
+          </div>
+        
+          <div>
+            <p class="h3 nav-title">Topics</p>
+            <ul>
+              <li class="nav-item">
+                <a href="projects.html?filter=web" class="nav-link">Web Development</a>
+              </li>
+              <li class="nav-item">
+                <a href="projects.html?filter=net" class="nav-link">.NET & C#</a>
+              </li>
+              <li class="nav-item">
+                <a href="services.html#qa" class="nav-link">Quality Assurance</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================
+      CONTACT HERO SECTION
+  ========================= -->
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div class="container">
+        <h1 class="h1">Let's Connect</h1>
+        <p class="h3">Get in touch for projects or opportunities</p>
+      </div>
+    </section>
+
+    <!-- ======================
+        CONTACT FORM SECTION
+    ========================= -->
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2 class="h3"><br>Contact Info</h3>
+            <div class="info-item">
+              <ion-icon name="mail-outline"></ion-icon>
+              <span>saimisatwork@gmail.com</span>
+            </div>
+            <div class="info-item">
+              <ion-icon name="call-outline"></ion-icon>
+              <span>+92 310 7867246</span>
+            </div>
+
+            <!-- ======================
+                SOCIAL LINKS SECTION (FIXED VISIBILITY)
+            ========================= -->
+            <div class="contact-social">
+              <h3 class="h3"><br>Find Me On</h3>
+              <ul class="social-links">
+                <li>
+                  <a href="https://www.linkedin.com/in/muhammad-saim-ayyaz-61a087319" class="icon-box linkedin" target="_blank" aria-label="LinkedIn">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                    <span>LinkedIn</span></a>
+                </li>
+                <li>
+                  <a href="https://github.com/saimayyazsheikh" class="icon-box github" target="_blank" aria-label="GitHub">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <span>GitHub</span></a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/cymonbike" class="icon-box instagram" target="_blank" aria-label="Instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                    <span>Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option value="project">Project Inquiry</option>
+                <option value="job">Job Opportunity</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button><br>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================
+      FOOTER SECTION
+  ========================= -->
+  <footer>
+    <div class="container">
+      <div class="wrapper">
+        <a href="#" class="footer-logo">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's Logo" width="250" height="200" class="logo-light">
+          <img src="./assets/images/slogo.ico" alt="Muhammad Saim Ayyaz's Logo" width="250" height="200" class="logo-dark">
+        </a>
+        
+      </div>
+
+      <div class="wrapper">
+        <p class="footer-title">Quick Links</p>
+        <ul>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="services.html" class="footer-link">Services</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="wrapper">
+        <p class="footer-title">Legal</p>
+        <ul>
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Cookie Policy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">
+      &copy; Copyright 2025 <a href="#">Muhammad Saim Ayyaz</a>
+    </p>
+  </footer>
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.min.js"></script>
+  <script src="./assets/js/animations.js"></script>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Contact Form Script -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Simple validation
+      if (!name || !email || !message) {
+        alert('Please fill in all required fields');
+        return;
+      }
+      
+      // Form submission handling (replace with actual submission logic)
+      console.log('Form submitted:', { name, email, subject, message });
+      alert('Thank you for your message! I will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
