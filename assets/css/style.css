@@ -1384,13 +1384,12 @@ body, html {
   flex-direction: column;
 }
 
+/* Project Image */
 .project-card .project-image {
-  /* Ensure the image container has no fixed height */
   width: 100%;
-  height: auto;
+  height: 0;
   padding-top: 56.25%; /* 16:9 aspect ratio */
-  overflow: hidden;
-  position: relative; /* Keep it contained within its container */
+  position: relative;
 }
 
 .project-card .project-image img {
@@ -1403,6 +1402,7 @@ body, html {
   transition: transform 0.5s ease;
 }
 
+/* Hover effect for Project Card */
 .project-card:hover {
   transform: translateY(-5px);
 }
@@ -1412,17 +1412,17 @@ body, html {
 }
 
 /* ======================
-   RESPONSIVENESS
+   RESPONSIVENESS FIXES
 ======================= */
 
-/* For screens wider than 768px (Tablets and small desktops) */
+/* For screens wider than 768px (Tablets and up) */
 @media (min-width: 768px) {
   .featured-projects {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjust the grid columns for tablets */
   }
 }
 
-/* For screens wider than 1024px (Desktop and larger devices) */
+/* For screens wider than 1024px (Desktop and up) */
 @media (min-width: 1024px) {
   .featured-projects {
     grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
@@ -1436,8 +1436,10 @@ body, html {
 /* Ensure the project card images adjust on mobile */
 @media (max-width: 767px) {
   .project-card .project-image {
-    padding-top: 56.25%; /* Ensure aspect ratio works well on mobile */
+    padding-top: 56.25%; /* Maintain aspect ratio of 16:9 */
+    height: auto; /* Allow it to be responsive */
   }
+
   .project-card .project-image img {
     object-fit: cover;
     width: 100%;
